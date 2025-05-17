@@ -124,5 +124,8 @@ python odoo-bin -c odoo.conf
 ### ✅ Blog Detail View  
 ![Blog Detail](./screenshots/blog_form_detail.png)
 
+### ✅ VentureBeat Page  
+![Page List](./screenshots/page_venturebeat_in_odoo.png)
+
 ### ✅ VentureBeat Page Content  
-![Page Detail](./screenshots/page_venturebeat_in_odoo.png)
+![Page Detail](./screenshots/page_venturebeat_Content_in_odoo.png)
