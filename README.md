@@ -110,7 +110,7 @@ python odoo-bin -c odoo.conf
 
 ---
 
-## 📸 Screenshots – Demo Output
+## 📸 Screenshots – Output
 
 ### ✅ Jobs List in Odoo  
 ![Jobs List](./screenshots/jobs_linkedin_in_odoo.png)
