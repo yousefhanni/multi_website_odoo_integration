@@ -67,12 +67,6 @@ python scrape_venturebeat_about.py
 
 Each script will generate its corresponding `.json` file inside the `data/` folder.
 
-🖼️ Example Output:
-
-![LinkedIn Jobs](./screenshots/jobs_linkedin_in_odoo.png)
-![TechCrunch Blogs](./screenshots/blogs_techcrunch_in_odoo.png)
-![VentureBeat Page](./screenshots/page_venturebeat_in_odoo.png)
-
 ---
 
 ## 📤 How to Push Data to Odoo
@@ -88,10 +82,6 @@ python api_pusher.py
 The script will:
 - Authenticate using XML-RPC
 - Push data to Odoo using `scraped.job`, `scraped.blog`, and `scraped.page` models
-
-🖼️ Terminal Output:
-
-![Push Results](./screenshots/job_form_detail.png)
 
 ---
 
@@ -118,6 +108,21 @@ python odoo-bin -c odoo.conf
 
 **Scraping Manager** → Jobs / Blogs / Pages
 
-🖼️ Odoo UI:
+---
 
-![Blog Form](./screenshots/blog_form_detail.png)
+## 📸 Screenshots – Output
+
+### ✅ Jobs List in Odoo  
+![Jobs List](./screenshots/jobs_linkedin_in_odoo.png)
+
+### ✅ Job Detail View  
+![Job Detail](./screenshots/job_form_detail.png)
+
+### ✅ Blog List View  
+![Blog List](./screenshots/blogs_techcrunch_in_odoo.png)
+
+### ✅ Blog Detail View  
+![Blog Detail](./screenshots/blog_form_detail.png)
+
+### ✅ VentureBeat Page Content  
+![Page Detail](./screenshots/page_venturebeat_in_odoo.png)
