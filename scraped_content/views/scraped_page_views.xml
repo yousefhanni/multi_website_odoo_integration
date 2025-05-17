@@ -1,0 +1,37 @@
+<odoo>
+  <record id="view_scraped_page_tree" model="ir.ui.view">
+    <field name="name">scraped.page.tree</field>
+    <field name="model">scraped.page</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="title"/>
+        <field name="status"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_scraped_page_form" model="ir.ui.view">
+    <field name="name">scraped.page.form</field>
+    <field name="model">scraped.page</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="title"/>
+          <field name="content"/>
+          <field name="source_url"/>
+          <field name="status"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <menuitem id="menu_scraped_page" name="Pages" parent="menu_scraping_manager"/>
+
+  <record id="action_scraped_page" model="ir.actions.act_window">
+    <field name="name">Pages</field>
+    <field name="res_model">scraped.page</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="submenu_scraped_page" parent="menu_scraped_page" action="action_scraped_page"/>
+</odoo>

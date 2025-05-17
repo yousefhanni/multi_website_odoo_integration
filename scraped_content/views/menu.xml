@@ -1,0 +1,3 @@
+<odoo>
+  <menuitem id="menu_scraping_manager" name="Scraping Manager" sequence="10"/>
+</odoo>
