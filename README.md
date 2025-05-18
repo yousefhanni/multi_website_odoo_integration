@@ -1,31 +1,6 @@
 # 🚀 Odoo Developer Task: Web Scraping, API Integration & Custom Module
 
-This project integrates web-scraped content into a custom Odoo module via API.  
-It includes:
-
-- Web scraping scripts (LinkedIn Jobs, TechCrunch Blogs, VentureBeat Pages)
-- A custom Odoo module (`scraped_content`)
-- An API pusher script to send data to Odoo
-- Structured JSON output
-- Full setup and usage instructions
-
----
-
-## 🧭 How This Project Works
-
-The project is organized into three main components:
-
-1. **Web Scraping Scripts** (`scraping_scripts/`)  
-   - Run to extract data from LinkedIn, TechCrunch, and VentureBeat  
-   - Output is saved as `.json` files inside the `data/` folder
-
-2. **Custom Odoo Module** (`scraped_content/`)  
-   - Installed in your Odoo server to display and manage scraped data
-
-3. **API Pusher** (`api_pusher.py`)  
-   - Reads the `.json` files and sends the data to Odoo using XML-RPC API  
-   - ⚠️ You must update the script with your Odoo credentials
-
+This README provides setup and usage instructions for a project that extracts data from external websites and integrates it into Odoo via a custom module and API.
 ---
 
 ## 📁 Project Structure
