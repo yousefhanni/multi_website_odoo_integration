@@ -47,7 +47,7 @@ multi_website_odoo_integration/
 │   ├── models/
 │   ├── views/
 │   └── security/
-└── screenshots/
+└── screenshots/              # Output UI screenshots from Odoo after pushing the data
     ├── jobs_linkedin_in_odoo.png
     ├── blogs_techcrunch_in_odoo.png
     ├── page_venturebeat_in_odoo.png
