@@ -1,0 +1,18 @@
+<odoo>
+  <template id="job_listing_template" name="Job Listing Page">
+    <t t-call="website.layout">
+      <div class="container my-5">
+        <h2 class="mb-4">Job Listings</h2>
+        <t t-foreach="jobs" t-as="job">
+          <div class="card mb-3 p-3">
+            <h4><t t-esc="job.name" /></h4>
+            <p><strong>Company:</strong> <t t-esc="job.company_name" /></p>
+            <p><strong>Location:</strong> <t t-esc="job.location" /></p>
+            <p><strong>Posted:</strong> <t t-esc="job.date_posted" /></p>
+            <a t-att-href="job.source_url" target="_blank">View Original</a>
+          </div>
+        </t>
+      </div>
+    </t>
+  </template>
+</odoo>
