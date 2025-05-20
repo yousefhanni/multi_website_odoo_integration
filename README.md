@@ -7,29 +7,34 @@ This README provides setup and usage instructions for a project that extracts da
 
 ```
 multi_website_odoo_integration/
-├── api_pusher.py
-├── data/
-│   ├── linkedin_jobs.json
-│   ├── techcrunch_blogs.json
-│   └── venturebeat_about.json
-├── scraping_scripts/
+├── scrapers/                       # Scraping scripts for each website
 │   ├── scrape_linkedin.py
 │   ├── scrape_techcrunch.py
-│   ├── scrape_venturebeat_about.py
-├── scraped_content/
+│   └── scrape_venturebeat_about.py
+├── pusher/
+│   ├── push_to_odoo.py
+│   └── .env
+├── scraped_content/               # Custom Odoo module
 │   ├── __manifest__.py
 │   ├── __init__.py
 │   ├── models/
+│   │   ├── scraped_job.py
+│   │   ├── scraped_blog.py
+│   │   └── scraped_page.py
 │   ├── views/
+│   │   ├── scraped_job_views.xml
+│   │   ├── scraped_blog_views.xml
+│   │   └── scraped_page_views.xml
 │   └── security/
-└── screenshots/              # Output UI screenshots from Odoo after pushing the data
-    ├── jobs_linkedin_in_odoo.png
-    ├── blogs_techcrunch_in_odoo.png
-    ├── page_venturebeat_in_odoo.png
-    ├── job_form_detail.png
-    └── blog_form_detail.png
+│       └── ir.model.access.csv
+├── data/                           # JSON outputs from scraping scripts
+│   ├── linkedin_jobs.json
+│   ├── techcrunch_blogs.json
+│   └── venturebeat_about.json
+├── screenshots/                   # Final output screenshots
+├── README.md
+└── .gitignore
 ```
-
 ---
 
 ## ✅ Setup Instructions
@@ -64,8 +69,8 @@ pip install selenium beautifulsoup4 requests
 
 1. Check your Chrome version from `chrome://settings/help`
 2. Download the matching version from: https://googlechromelabs.github.io/chrome-for-testing/
-3. Place `chromedriver` inside the `scraping_scripts/` folder
-
+3. Place the executable inside `scrapers/` folder.
+   
 > ℹ️ These dependencies and the ChromeDriver setup are required to run the scraping scripts located inside the `scraping_scripts/` folder.  
 > The scripts use Selenium and BeautifulSoup to extract data from external websites like LinkedIn, TechCrunch, and VentureBeat.
 
@@ -73,7 +78,7 @@ pip install selenium beautifulsoup4 requests
 
 ## 🕷️ How to Run the Scrapers
 
-Navigate to the `scraping_scripts/` folder and run:
+Navigate to the `scrapers/` folder and run:
 
 ```bash
 python scrape_linkedin.py
@@ -85,21 +90,48 @@ Each script generates its `.json` file in the `data/` folder.
 
 ---
 
+## 📤 How to Run the Pusher Script
+
+1. Make sure Odoo is running and the `scraped_content` module is installed.
+
+2. Navigate to the `pusher/` folder and create a `.env` file with the following credentials:
+
+```
+ODOO_URL=http://localhost:8069
+ODOO_DB=your_database_name_here
+ODOO_USER=your_email_or_login_here
+ODOO_PASSWORD=your_password_here
+```
+
+3. Then run:
+
+```bash
+python api_pusher.py
+```
+
+This script:
+- Authenticates with Odoo via XML-RPC
+- Pushes data to:
+  - `scraped.job`
+  - `scraped.blog` → and also into `website.blog.post`
+  - `scraped.page` → and also into `website.page`
+- Ensures idempotency and includes retry and error logging logic.
+---
+
 ## 🧩 How to Install & Use the Odoo Module
 
 1. Copy the `scraped_content/` folder into your Odoo custom addons path.
 2. Update your `odoo.conf` file:
 
 ```ini
-addons_path = /path/to/odoo/addons,/path/to/multi_website_odoo_integration/scraped_content
+addons_path =addons_path = /your/custom/path/scraped_content
 ```
 
-3. Restart the Odoo server:
-
+3. Restart the Odoo server
+   
 ```bash
 python odoo-bin -c odoo.conf
 ```
-
 4. Activate Developer Mode in Odoo.
 5. Go to **Apps** → Click **Update Apps List**
 6. Search for `Scraped Content` and click **Install**
@@ -110,27 +142,15 @@ python odoo-bin -c odoo.conf
 
 ---
 
-## 📤 How to Push Data to Odoo
+## 🌐 How to See the Data on Website
 
-1. Make sure Odoo is running and the `scraped_content` module is installed.
-2. Open `api_pusher.py` and update the following values:
+- Blogs pushed to `website.blog.post` appear under **Website > Blog**
+- Pages pushed to `website.page` appear under **Website > Pages**
+- Custom Job Listing Page appears at: `http://localhost:8069/jobs`
 
-```python
-url = "http://localhost:8069"
-db = "your_db_name"
-username = "your_username"
-password = "your_password"
-```
-
-3. Run the script:
-
-```bash
-python api_pusher.py
-```
-
-The script will:
-- Authenticate using XML-RPC
-- Push data to Odoo using `scraped.job`, `scraped.blog`, and `scraped.page` models
+To navigate to it:
+1. Go to **Website > Site > Menu Editor**
+2. Add `/jobs` as a new menu entry pointing to the job page.
 
 ---
 
