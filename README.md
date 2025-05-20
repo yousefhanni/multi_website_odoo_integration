@@ -162,6 +162,10 @@ To navigate to it:
 ![Blog Detail](./screenshots/blog_form_detail.png)
 ![VentureBeat List](./screenshots/page_venturebeat_in_odoo.png)
 ![VentureBeat Detail](./screenshots/page_venturebeat_Content_in_odoo.png)
+![Blogs Published on Website](./screenshots/blogs_published_on_website.png)
+![Custom Job Listing Page](./screenshots/custom_job_listing_page.png)
+![Page Published on Website](./screenshots/page_published_on_website.png)
+
 
 ---
 
