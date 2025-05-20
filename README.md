@@ -166,7 +166,6 @@ To navigate to it:
 ![Custom Job Listing Page](./screenshots/custom_job_listing_page.png)
 ![Page Published on Website](./screenshots/page_published_on_website.png)
 
-
 ---
 
 ## 📩 Contact
