@@ -156,17 +156,33 @@ To navigate to it:
 
 ## 📸 Screenshots
 
+### 🔹 Jobs List (Backend)
 ![Jobs List](./screenshots/jobs_linkedin_in_odoo.png)
+
+### 🔹 Job Detail (Backend)
 ![Job Detail](./screenshots/job_form_detail.png)
+
+### 🔹 Blog List (Backend)
 ![Blog List](./screenshots/blogs_techcrunch_in_odoo.png)
+
+### 🔹 Blog Detail (Backend)
 ![Blog Detail](./screenshots/blog_form_detail.png)
+
+### 🔹 VentureBeat Page List (Backend)
 ![VentureBeat List](./screenshots/page_venturebeat_in_odoo.png)
+
+### 🔹 VentureBeat Page Detail (Backend)
 ![VentureBeat Detail](./screenshots/page_venturebeat_Content_in_odoo.png)
+
+### 🔹 Blogs Published on Website
 ![Blogs Published on Website](./screenshots/blogs_published_on_website.png)
+
+### 🔹 Custom Job Listing Page (Website)
 ![Custom Job Listing Page](./screenshots/custom_job_listing_page.png)
+
+### 🔹 Pages Published on Website
 ![Page Published on Website](./screenshots/page_published_on_website.png)
 
----
 
 ## 📩 Contact
 
